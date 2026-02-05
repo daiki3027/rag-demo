@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-02-04T14:59:47.880629Z",
+  "updated_at": "2026-02-05T11:20:09.757651Z",
   "embedding_provider": "openai",
   "embedding_dim": 1536,
   "vector_count": 50,
