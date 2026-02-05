@@ -1,4 +1,5 @@
 import ChatBox from "./components/ChatBox";
+import ReindexPanel from "./components/ReindexPanel";
 
 export default function HomePage() {
   return (
@@ -14,7 +15,10 @@ export default function HomePage() {
           評価ページへ
         </a>
       </header>
-      <ChatBox />
+      <div className="grid" style={{ gap: 20 }}>
+        <ChatBox />
+        <ReindexPanel />
+      </div>
     </div>
   );
 }

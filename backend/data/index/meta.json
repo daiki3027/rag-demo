@@ -1,0 +1,12 @@
+{
+  "updated_at": "2026-02-04T14:59:47.880629Z",
+  "embedding_provider": "openai",
+  "embedding_dim": 1536,
+  "vector_count": 50,
+  "usage": {
+    "model": "text-embedding-3-small",
+    "prompt_tokens": 937,
+    "total_tokens": 937,
+    "cost_usd": 1.8740000000000004e-05
+  }
+}

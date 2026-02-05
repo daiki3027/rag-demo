@@ -36,9 +36,19 @@ def evaluate(search_engine: SearchEngine, qa_items: List[EvaluationItem], thresh
     hit = 0
     neg_success = 0
     failures: List[Dict[str, object]] = []
+    total_prompt_tokens = 0
+    total_tokens = 0
+    total_cost = 0.0
+    last_model: Optional[str] = None
 
     for item in qa_items:
         results = search_engine.search(item.question)
+        usage = getattr(search_engine, "last_usage", None)
+        if usage:
+            total_prompt_tokens += usage.prompt_tokens
+            total_tokens += usage.total_tokens
+            total_cost += usage.cost_usd
+            last_model = usage.model
         if item.gold_doc_id:
             pos_total += 1
             matched = any(r.doc_id == item.gold_doc_id for r in results)
@@ -78,4 +88,10 @@ def evaluate(search_engine: SearchEngine, qa_items: List[EvaluationItem], thresh
         "hit_at_5": hit / pos_total if pos_total else 0.0,
         "no_answer_accuracy": neg_success / neg_total if neg_total else 0.0,
         "failures": failures,
+        "usage": {
+            "model": last_model,
+            "prompt_tokens": total_prompt_tokens,
+            "total_tokens": total_tokens,
+            "cost_usd": total_cost,
+        },
     }

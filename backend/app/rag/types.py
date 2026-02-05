@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 from typing import List, Optional
 
 Vector = List[float]
@@ -25,6 +25,17 @@ class SearchResult:
     title: str
     text: str
     score: float
+
+
+@dataclass
+class Usage:
+    model: str
+    prompt_tokens: int
+    total_tokens: int
+    cost_usd: float
+
+    def to_dict(self) -> dict:
+        return asdict(self)
 
 
 @dataclass

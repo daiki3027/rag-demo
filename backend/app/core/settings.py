@@ -13,7 +13,8 @@ class Settings(BaseSettings):
     retriever_top_k: int = 5
     embedding_dim: int = Field(128, env="EMBEDDING_DIM")
 
-    base_dir: Path = Path(__file__).resolve().parent.parent
+    # backend/app/core/settings.py -> backend/app -> backend
+    base_dir: Path = Path(__file__).resolve().parent.parent.parent
     data_dir: Path = base_dir / "data"
     seed_dir: Path = data_dir / "seed"
     index_dir: Path = data_dir / "index"

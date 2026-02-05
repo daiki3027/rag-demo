@@ -1,13 +1,14 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
-import { runQuery, Source } from "@/lib/api";
+import { runQuery, Source, Usage } from "@/lib/api";
 import Sources from "./Sources";
 
 export default function ChatBox() {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState<string | null>(null);
   const [sources, setSources] = useState<Source[]>([]);
+  const [usage, setUsage] = useState<Usage | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -22,10 +23,12 @@ export default function ChatBox() {
       const res = await runQuery(question.trim());
       setAnswer(res.answer);
       setSources(res.sources || []);
+      setUsage(res.usage || null);
     } catch (err: any) {
       setError(err.message || "エラーが発生しました");
       setAnswer(null);
       setSources([]);
+      setUsage(null);
     } finally {
       setLoading(false);
     }
@@ -69,6 +72,22 @@ export default function ChatBox() {
               <p style={{ color: "var(--muted)", fontSize: 13, marginTop: 8 }}>
                 debug: max_score = {topScore.toFixed(3)}
               </p>
+            )}
+            {usage && (
+              <div style={{ marginTop: 8, fontSize: 13, color: "var(--muted)" }}>
+                <span style={{ display: "inline-block", marginRight: 10 }}>
+                  model: {usage.model ?? "-"}
+                </span>
+                <span style={{ display: "inline-block", marginRight: 10 }}>
+                  tokens: {usage.total_tokens}
+                </span>
+                <span style={{ display: "inline-block", marginRight: 10 }}>
+                  {(() => {
+                    const yen = usage.cost_usd * 155;
+                    return `cost: $${usage.cost_usd.toFixed(8)} (¥${yen.toFixed(8)})`;
+                  })()}
+                </span>
+              </div>
             )}
           </>
         ) : (

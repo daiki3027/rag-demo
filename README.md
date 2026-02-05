@@ -8,6 +8,12 @@
 - `backend/data/seed/` テスト用ドキュメント50件(`documents.jsonl`)とQA60問(`qa.jsonl`)
 - `backend/data/index/` ベクトルインデックス出力先(`vectors.jsonl`, `meta.json`)
 
+## Docker でまとめて起動する
+- ビルド & 起動: `docker compose up --build`
+- バックエンド: http://localhost:8000
+- フロントエンド: http://localhost:3000 (バックエンドへの接続先は `NEXT_PUBLIC_BACKEND_URL` で変更可)
+- 生成されたインデックスはホストの `backend/data` と共有されるため、コンテナ再作成後も維持されます。
+
 ## 1. バックエンド起動
 ```bash
 cd backend

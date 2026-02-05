@@ -19,9 +19,17 @@ class SourceItem(BaseModel):
     text: str
 
 
+class UsageItem(BaseModel):
+    model: str
+    prompt_tokens: int
+    total_tokens: int
+    cost_usd: float
+
+
 class QueryResponse(BaseModel):
     answer: str
     sources: list[SourceItem]
+    usage: UsageItem | None = None
 
 
 @router.post("/query", response_model=QueryResponse)
@@ -41,4 +49,7 @@ async def query(req: QueryRequest, settings: Settings = Depends(get_settings)) -
 
     answer_text = results[0].text
     sources = [SourceItem(doc_id=r.doc_id, score=r.score, text=r.text) for r in results]
-    return QueryResponse(answer=answer_text, sources=sources)
+    usage = None
+    if engine.last_usage:
+        usage = UsageItem(**engine.last_usage.to_dict())
+    return QueryResponse(answer=answer_text, sources=sources, usage=usage)

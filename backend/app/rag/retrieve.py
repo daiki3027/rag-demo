@@ -13,6 +13,7 @@ class SearchEngine:
         self.settings = settings
         self.index_path: Path = settings.index_dir / "vectors.jsonl"
         self.embedding_provider = provider_from_settings(settings)
+        self.last_usage = None
 
     def _load_index(self) -> List[VectorRecord]:
         if not self.index_path.exists():
@@ -30,6 +31,7 @@ class SearchEngine:
     def search(self, query: str) -> List[SearchResult]:
         vectors = self._load_index()
         query_vec = self.embedding_provider.embed_text(query)
+        self.last_usage = getattr(self.embedding_provider, "last_usage", None)
         scored = []
         for record in vectors:
             if len(record.vector) != len(query_vec):

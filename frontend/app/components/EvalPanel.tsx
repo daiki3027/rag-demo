@@ -53,6 +53,22 @@ export default function EvalPanel() {
                 <div style={{ fontSize: 22, fontWeight: 700 }}>{result.total}</div>
               </div>
             </div>
+            {result.usage && (
+              <div style={{ marginTop: 8, fontSize: 13, color: "var(--muted)" }}>
+                <span style={{ display: "inline-block", marginRight: 10 }}>
+                  model: {result.usage.model ?? "-"}
+                </span>
+                <span style={{ display: "inline-block", marginRight: 10 }}>
+                  tokens: {result.usage.total_tokens}
+                </span>
+                <span style={{ display: "inline-block", marginRight: 10 }}>
+                  {(() => {
+                    const yen = result.usage!.cost_usd * 155;
+                    return `cost: $${result.usage!.cost_usd.toFixed(8)} (¥${yen.toFixed(8)})`;
+                  })()}
+                </span>
+              </div>
+            )}
           </div>
           <h3 style={{ marginBottom: 8 }}>Failures ({result.failures.length})</h3>
           {result.failures.length === 0 ? (

@@ -1,13 +1,22 @@
 import hashlib
 import math
 from abc import ABC, abstractmethod
-from typing import Iterable, List, Sequence
+from typing import Iterable, List, Optional, Sequence
 
 from ..core.settings import Settings
-from .types import Vector
+from .types import Usage, Vector
+
+# USD cost per 1k input tokens (as of 2026-02-04). Update if pricing changes.
+EMBEDDING_PRICES = {
+    "text-embedding-3-small": 0.00002,
+    "text-embedding-3-large": 0.00013,
+}
 
 
 class EmbeddingProvider(ABC):
+    def __init__(self) -> None:
+        self.last_usage: Optional[Usage] = None
+
     @abstractmethod
     def embed_texts(self, texts: Sequence[str]) -> List[Vector]:
         raise NotImplementedError
@@ -18,6 +27,7 @@ class EmbeddingProvider(ABC):
 
 class DummyEmbeddingProvider(EmbeddingProvider):
     def __init__(self, dimension: int = 128) -> None:
+        super().__init__()
         self.dimension = dimension
 
     def _tokenize(self, text: str) -> Iterable[str]:
@@ -39,11 +49,17 @@ class DummyEmbeddingProvider(EmbeddingProvider):
         return [x / norm for x in vec]
 
     def embed_texts(self, texts: Sequence[str]) -> List[Vector]:
-        return [self._vector_for_tokens(self._tokenize(text)) for text in texts]
+        vectors = [self._vector_for_tokens(self._tokenize(text)) for text in texts]
+        total_tokens = sum(len(text.replace(" ", "")) for text in texts)
+        self.last_usage = Usage(
+            model="dummy", prompt_tokens=total_tokens, total_tokens=total_tokens, cost_usd=0.0
+        )
+        return vectors
 
 
 class OpenAIEmbeddingProvider(EmbeddingProvider):
     def __init__(self, api_key: str, model: str = "text-embedding-3-small") -> None:
+        super().__init__()
         try:
             from openai import OpenAI  # type: ignore
         except Exception as exc:  # pragma: no cover - optional dependency
@@ -53,6 +69,17 @@ class OpenAIEmbeddingProvider(EmbeddingProvider):
 
     def embed_texts(self, texts: Sequence[str]) -> List[Vector]:
         response = self.client.embeddings.create(model=self.model, input=list(texts))
+        usage_obj = getattr(response, "usage", None)
+        prompt_tokens = getattr(usage_obj, "prompt_tokens", 0) if usage_obj else 0
+        total_tokens = getattr(usage_obj, "total_tokens", prompt_tokens) if usage_obj else prompt_tokens
+        price = EMBEDDING_PRICES.get(self.model, 0.0)
+        cost_usd = (prompt_tokens / 1000) * price
+        self.last_usage = Usage(
+            model=self.model,
+            prompt_tokens=prompt_tokens,
+            total_tokens=total_tokens,
+            cost_usd=cost_usd,
+        )
         return [item.embedding for item in response.data]
 
 

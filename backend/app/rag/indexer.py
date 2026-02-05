@@ -15,6 +15,7 @@ def reindex(settings: Settings) -> dict:
     provider = provider_from_settings(settings)
     texts = [doc.text for doc in documents]
     vectors = provider.embed_texts(texts)
+    usage = getattr(provider, "last_usage", None)
     records: List[VectorRecord] = []
     for doc, vector in zip(documents, vectors):
         records.append(
@@ -29,6 +30,8 @@ def reindex(settings: Settings) -> dict:
         "embedding_dim": vector_dim,
         "vector_count": len(records),
     }
+    if usage:
+        meta["usage"] = usage.to_dict()
     meta_path = settings.index_dir / "meta.json"
     meta_path.parent.mkdir(parents=True, exist_ok=True)
     meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
