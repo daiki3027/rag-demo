@@ -1,0 +1,2094 @@
+{
+  "provider": "dummy",
+  "model": "dummy-128d",
+  "top_k": 5,
+  "default_threshold": 0.25,
+  "rows": [
+    {
+      "threshold": 0.1,
+      "hit_at_1": 0.8,
+      "hit_at_k": 0.9666666666666667,
+      "answered_correctly": 0.8,
+      "false_refusal": 0.0,
+      "no_answer_accuracy": 0.0,
+      "no_answer_by_subtype": {
+        "boundary": 0.0,
+        "hallucination": 0.0,
+        "noise": 0.0
+      },
+      "overall_accuracy": 0.4
+    },
+    {
+      "threshold": 0.15,
+      "hit_at_1": 0.8,
+      "hit_at_k": 0.9666666666666667,
+      "answered_correctly": 0.8,
+      "false_refusal": 0.0,
+      "no_answer_accuracy": 0.0,
+      "no_answer_by_subtype": {
+        "boundary": 0.0,
+        "hallucination": 0.0,
+        "noise": 0.0
+      },
+      "overall_accuracy": 0.4
+    },
+    {
+      "threshold": 0.2,
+      "hit_at_1": 0.8,
+      "hit_at_k": 0.9666666666666667,
+      "answered_correctly": 0.8,
+      "false_refusal": 0.0,
+      "no_answer_accuracy": 0.0,
+      "no_answer_by_subtype": {
+        "boundary": 0.0,
+        "hallucination": 0.0,
+        "noise": 0.0
+      },
+      "overall_accuracy": 0.4
+    },
+    {
+      "threshold": 0.25,
+      "hit_at_1": 0.8,
+      "hit_at_k": 0.9666666666666667,
+      "answered_correctly": 0.8,
+      "false_refusal": 0.0,
+      "no_answer_accuracy": 0.0,
+      "no_answer_by_subtype": {
+        "boundary": 0.0,
+        "hallucination": 0.0,
+        "noise": 0.0
+      },
+      "overall_accuracy": 0.4
+    },
+    {
+      "threshold": 0.3,
+      "hit_at_1": 0.8,
+      "hit_at_k": 0.9666666666666667,
+      "answered_correctly": 0.8,
+      "false_refusal": 0.0,
+      "no_answer_accuracy": 0.0,
+      "no_answer_by_subtype": {
+        "boundary": 0.0,
+        "hallucination": 0.0,
+        "noise": 0.0
+      },
+      "overall_accuracy": 0.4
+    },
+    {
+      "threshold": 0.35,
+      "hit_at_1": 0.8,
+      "hit_at_k": 0.9666666666666667,
+      "answered_correctly": 0.8,
+      "false_refusal": 0.0,
+      "no_answer_accuracy": 0.0,
+      "no_answer_by_subtype": {
+        "boundary": 0.0,
+        "hallucination": 0.0,
+        "noise": 0.0
+      },
+      "overall_accuracy": 0.4
+    },
+    {
+      "threshold": 0.4,
+      "hit_at_1": 0.8,
+      "hit_at_k": 0.9666666666666667,
+      "answered_correctly": 0.8,
+      "false_refusal": 0.0,
+      "no_answer_accuracy": 0.1,
+      "no_answer_by_subtype": {
+        "boundary": 0.0,
+        "hallucination": 0.1,
+        "noise": 0.2
+      },
+      "overall_accuracy": 0.45
+    },
+    {
+      "threshold": 0.45,
+      "hit_at_1": 0.8,
+      "hit_at_k": 0.9666666666666667,
+      "answered_correctly": 0.7666666666666667,
+      "false_refusal": 0.03333333333333333,
+      "no_answer_accuracy": 0.3333333333333333,
+      "no_answer_by_subtype": {
+        "boundary": 0.0,
+        "hallucination": 0.4,
+        "noise": 0.6
+      },
+      "overall_accuracy": 0.55
+    },
+    {
+      "threshold": 0.5,
+      "hit_at_1": 0.8,
+      "hit_at_k": 0.9666666666666667,
+      "answered_correctly": 0.7666666666666667,
+      "false_refusal": 0.06666666666666667,
+      "no_answer_accuracy": 0.4666666666666667,
+      "no_answer_by_subtype": {
+        "boundary": 0.0,
+        "hallucination": 0.5,
+        "noise": 0.9
+      },
+      "overall_accuracy": 0.6166666666666667
+    },
+    {
+      "threshold": 0.55,
+      "hit_at_1": 0.8,
+      "hit_at_k": 0.9666666666666667,
+      "answered_correctly": 0.7333333333333333,
+      "false_refusal": 0.13333333333333333,
+      "no_answer_accuracy": 0.7,
+      "no_answer_by_subtype": {
+        "boundary": 0.3,
+        "hallucination": 0.9,
+        "noise": 0.9
+      },
+      "overall_accuracy": 0.7166666666666667
+    },
+    {
+      "threshold": 0.6,
+      "hit_at_1": 0.8,
+      "hit_at_k": 0.9666666666666667,
+      "answered_correctly": 0.6,
+      "false_refusal": 0.26666666666666666,
+      "no_answer_accuracy": 0.8,
+      "no_answer_by_subtype": {
+        "boundary": 0.5,
+        "hallucination": 1.0,
+        "noise": 0.9
+      },
+      "overall_accuracy": 0.7
+    },
+    {
+      "threshold": 0.65,
+      "hit_at_1": 0.8,
+      "hit_at_k": 0.9666666666666667,
+      "answered_correctly": 0.6,
+      "false_refusal": 0.3333333333333333,
+      "no_answer_accuracy": 0.9333333333333333,
+      "no_answer_by_subtype": {
+        "boundary": 0.8,
+        "hallucination": 1.0,
+        "noise": 1.0
+      },
+      "overall_accuracy": 0.7666666666666667
+    },
+    {
+      "threshold": 0.7,
+      "hit_at_1": 0.8,
+      "hit_at_k": 0.9666666666666667,
+      "answered_correctly": 0.5,
+      "false_refusal": 0.4666666666666667,
+      "no_answer_accuracy": 0.9333333333333333,
+      "no_answer_by_subtype": {
+        "boundary": 0.8,
+        "hallucination": 1.0,
+        "noise": 1.0
+      },
+      "overall_accuracy": 0.7166666666666667
+    },
+    {
+      "threshold": 0.75,
+      "hit_at_1": 0.8,
+      "hit_at_k": 0.9666666666666667,
+      "answered_correctly": 0.3333333333333333,
+      "false_refusal": 0.6666666666666666,
+      "no_answer_accuracy": 0.9666666666666667,
+      "no_answer_by_subtype": {
+        "boundary": 0.9,
+        "hallucination": 1.0,
+        "noise": 1.0
+      },
+      "overall_accuracy": 0.65
+    },
+    {
+      "threshold": 0.8,
+      "hit_at_1": 0.8,
+      "hit_at_k": 0.9666666666666667,
+      "answered_correctly": 0.26666666666666666,
+      "false_refusal": 0.7333333333333333,
+      "no_answer_accuracy": 1.0,
+      "no_answer_by_subtype": {
+        "boundary": 1.0,
+        "hallucination": 1.0,
+        "noise": 1.0
+      },
+      "overall_accuracy": 0.6333333333333333
+    }
+  ],
+  "failures": [
+    {
+      "kind": "正解が2位以下（別の文書を回答）",
+      "question": "パスワードは最低何文字必要ですか？",
+      "expected": "doc_02",
+      "top_doc": "doc_01",
+      "top_score": 0.6270544465288199
+    },
+    {
+      "kind": "正解が2位以下（別の文書を回答）",
+      "question": "ログイン状態はどのくらい保持されますか？",
+      "expected": "doc_05",
+      "top_doc": "doc_09",
+      "top_score": 0.7156264473321344
+    },
+    {
+      "kind": "正解が2位以下（別の文書を回答）",
+      "question": "一般ユーザーは管理画面を見られますか？",
+      "expected": "doc_07",
+      "top_doc": "doc_06",
+      "top_score": 0.6634888026970372
+    },
+    {
+      "kind": "正解が2位以下（別の文書を回答）",
+      "question": "利用料金はいくらですか？",
+      "expected": "doc_11",
+      "top_doc": "doc_18",
+      "top_score": 0.50709255283711
+    },
+    {
+      "kind": "正解が2位以下（別の文書を回答）",
+      "question": "契約の更新頻度は？",
+      "expected": "doc_16",
+      "top_doc": "doc_19",
+      "top_score": 0.4762896722078402
+    },
+    {
+      "kind": "上位5件に正解なし",
+      "question": "APIの権限はどのようになっていますか？",
+      "expected": "doc_22",
+      "top_doc": "doc_23",
+      "top_score": 0.6274950199005567
+    },
+    {
+      "kind": "断れなかった（noise）",
+      "question": "この会社の創業者は誰ですか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_25",
+      "top_score": 0.41702882811414954
+    },
+    {
+      "kind": "断れなかった（noise）",
+      "question": "本社の所在地はどこですか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_16",
+      "top_score": 0.3922322702763681
+    },
+    {
+      "kind": "断れなかった（noise）",
+      "question": "従業員数は何人ですか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_19",
+      "top_score": 0.3962969619506086
+    },
+    {
+      "kind": "断れなかった（noise）",
+      "question": "会社の設立年はいつですか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_33",
+      "top_score": 0.41602514716892186
+    },
+    {
+      "kind": "断れなかった（noise）",
+      "question": "CEOの名前を教えてください。",
+      "expected": "（回答なし）",
+      "top_doc": "doc_39",
+      "top_score": 0.4383570037596046
+    },
+    {
+      "kind": "断れなかった（noise）",
+      "question": "サービスの株価はいくらですか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_33",
+      "top_score": 0.451848057057532
+    },
+    {
+      "kind": "断れなかった（noise）",
+      "question": "データセンターの電力会社はどこですか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_38",
+      "top_score": 0.6415002990995842
+    },
+    {
+      "kind": "断れなかった（noise）",
+      "question": "プライバシーポリシーのURLは何ですか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_01",
+      "top_score": 0.44854261357253034
+    },
+    {
+      "kind": "断れなかった（noise）",
+      "question": "サービスのロゴは何色ですか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_01",
+      "top_score": 0.49692934659788823
+    },
+    {
+      "kind": "断れなかった（noise）",
+      "question": "利用者の平均年齢はどのくらいですか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_18",
+      "top_score": 0.4780914437337575
+    },
+    {
+      "kind": "断れなかった（hallucination）",
+      "question": "指紋や顔認証でログインできますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_21",
+      "top_score": 0.44151078568834795
+    },
+    {
+      "kind": "断れなかった（hallucination）",
+      "question": "SAMLやSSOでのシングルサインオンは利用できますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_21",
+      "top_score": 0.5642181773706737
+    },
+    {
+      "kind": "断れなかった（hallucination）",
+      "question": "Webhookでイベント通知を受け取れますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_25",
+      "top_score": 0.37532594530273466
+    },
+    {
+      "kind": "断れなかった（hallucination）",
+      "question": "オフラインでもデータ編集できますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_21",
+      "top_score": 0.528395949267478
+    },
+    {
+      "kind": "断れなかった（hallucination）",
+      "question": "利用者ごとにカスタムドメインを設定できますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_01",
+      "top_score": 0.5070925528371101
+    },
+    {
+      "kind": "断れなかった（hallucination）",
+      "question": "レポートをPDFで自動生成する機能はありますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_16",
+      "top_score": 0.5345224838248489
+    },
+    {
+      "kind": "断れなかった（hallucination）",
+      "question": "チャットボットによるサポートは提供されていますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_36",
+      "top_score": 0.5405685506365594
+    },
+    {
+      "kind": "断れなかった（hallucination）",
+      "question": "外部BIツールへのリアルタイム連携はありますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_26",
+      "top_score": 0.48666426339228763
+    },
+    {
+      "kind": "断れなかった（hallucination）",
+      "question": "複数言語のUIに切り替えられますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_23",
+      "top_score": 0.41576092031015005
+    },
+    {
+      "kind": "断れなかった（hallucination）",
+      "question": "Kubernetes向けの専用デプロイ手順はありますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_36",
+      "top_score": 0.40590605489504306
+    },
+    {
+      "kind": "断れなかった（boundary）",
+      "question": "無料トライアル中に機能制限はありますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_10",
+      "top_score": 0.5744269579035528
+    },
+    {
+      "kind": "断れなかった（boundary）",
+      "question": "クレジットカード以外の支払い方法を追加できますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_13",
+      "top_score": 0.7559289460184545
+    },
+    {
+      "kind": "断れなかった（boundary）",
+      "question": "24時間稼働でも計画停止時はどこで告知されますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_31",
+      "top_score": 0.5510387687779839
+    },
+    {
+      "kind": "断れなかった（boundary）",
+      "question": "CSVエクスポートの列をカスタマイズできますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_21",
+      "top_score": 0.737864787372622
+    },
+    {
+      "kind": "断れなかった（boundary）",
+      "question": "メール通知の送信元アドレスは変更できますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_27",
+      "top_score": 0.6267831705280088
+    },
+    {
+      "kind": "断れなかった（boundary）",
+      "question": "画像以外のファイルはプレビューできますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_26",
+      "top_score": 0.6181150999636872
+    },
+    {
+      "kind": "断れなかった（boundary）",
+      "question": "退会後に一部のデータだけ保持できますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_21",
+      "top_score": 0.5163977794943223
+    },
+    {
+      "kind": "断れなかった（boundary）",
+      "question": "暗号化鍵を自社管理にできますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_06",
+      "top_score": 0.5000000000000001
+    },
+    {
+      "kind": "断れなかった（boundary）",
+      "question": "APIのエンドポイント数はいくつありますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_23",
+      "top_score": 0.5430450802499489
+    },
+    {
+      "kind": "断れなかった（boundary）",
+      "question": "バックアップの実行頻度を変更できますか？",
+      "expected": "（回答なし）",
+      "top_doc": "doc_29",
+      "top_score": 0.6419407387663695
+    }
+  ],
+  "top_scores": [
+    {
+      "question": "ログインに必要な情報は何ですか？",
+      "gold": "doc_01",
+      "subtype": null,
+      "top": [
+        [
+          "doc_01",
+          0.5916
+        ],
+        [
+          "doc_10",
+          0.433
+        ],
+        [
+          "doc_21",
+          0.433
+        ],
+        [
+          "doc_09",
+          0.3873
+        ],
+        [
+          "doc_03",
+          0.3859
+        ]
+      ]
+    },
+    {
+      "question": "パスワードは最低何文字必要ですか？",
+      "gold": "doc_02",
+      "subtype": null,
+      "top": [
+        [
+          "doc_01",
+          0.6271
+        ],
+        [
+          "doc_02",
+          0.6186
+        ],
+        [
+          "doc_04",
+          0.5455
+        ],
+        [
+          "doc_50",
+          0.4762
+        ],
+        [
+          "doc_21",
+          0.378
+        ]
+      ]
+    },
+    {
+      "question": "ログインに失敗するとどうなりますか？",
+      "gold": "doc_03",
+      "subtype": null,
+      "top": [
+        [
+          "doc_03",
+          0.6581
+        ],
+        [
+          "doc_10",
+          0.4924
+        ],
+        [
+          "doc_09",
+          0.4404
+        ],
+        [
+          "doc_44",
+          0.4355
+        ],
+        [
+          "doc_05",
+          0.3763
+        ]
+      ]
+    },
+    {
+      "question": "パスワード再設定のメールはどこに送られますか？",
+      "gold": "doc_04",
+      "subtype": null,
+      "top": [
+        [
+          "doc_04",
+          0.7428
+        ],
+        [
+          "doc_01",
+          0.5336
+        ],
+        [
+          "doc_50",
+          0.5268
+        ],
+        [
+          "doc_27",
+          0.4963
+        ],
+        [
+          "doc_31",
+          0.426
+        ]
+      ]
+    },
+    {
+      "question": "ログイン状態はどのくらい保持されますか？",
+      "gold": "doc_05",
+      "subtype": null,
+      "top": [
+        [
+          "doc_09",
+          0.7156
+        ],
+        [
+          "doc_05",
+          0.669
+        ],
+        [
+          "doc_50",
+          0.5118
+        ],
+        [
+          "doc_44",
+          0.4355
+        ],
+        [
+          "doc_41",
+          0.4264
+        ]
+      ]
+    },
+    {
+      "question": "誰が管理画面にアクセスできますか？",
+      "gold": "doc_06",
+      "subtype": null,
+      "top": [
+        [
+          "doc_06",
+          0.73
+        ],
+        [
+          "doc_07",
+          0.6299
+        ],
+        [
+          "doc_01",
+          0.349
+        ],
+        [
+          "doc_44",
+          0.3408
+        ],
+        [
+          "doc_16",
+          0.3244
+        ]
+      ]
+    },
+    {
+      "question": "一般ユーザーは管理画面を見られますか？",
+      "gold": "doc_07",
+      "subtype": null,
+      "top": [
+        [
+          "doc_06",
+          0.6635
+        ],
+        [
+          "doc_07",
+          0.6543
+        ],
+        [
+          "doc_04",
+          0.417
+        ],
+        [
+          "doc_41",
+          0.417
+        ],
+        [
+          "doc_27",
+          0.3901
+        ]
+      ]
+    },
+    {
+      "question": "二段階認証の記載はありますか？",
+      "gold": "doc_08",
+      "subtype": null,
+      "top": [
+        [
+          "doc_08",
+          0.7108
+        ],
+        [
+          "doc_30",
+          0.5101
+        ],
+        [
+          "doc_48",
+          0.4969
+        ],
+        [
+          "doc_02",
+          0.4392
+        ],
+        [
+          "doc_39",
+          0.4384
+        ]
+      ]
+    },
+    {
+      "question": "ログイン履歴は保存されますか？",
+      "gold": "doc_09",
+      "subtype": null,
+      "top": [
+        [
+          "doc_09",
+          0.8141
+        ],
+        [
+          "doc_05",
+          0.6183
+        ],
+        [
+          "doc_50",
+          0.5822
+        ],
+        [
+          "doc_41",
+          0.5457
+        ],
+        [
+          "doc_03",
+          0.4991
+        ]
+      ]
+    },
+    {
+      "question": "同時ログインの制限はありますか？",
+      "gold": "doc_10",
+      "subtype": null,
+      "top": [
+        [
+          "doc_10",
+          0.7217
+        ],
+        [
+          "doc_44",
+          0.5107
+        ],
+        [
+          "doc_03",
+          0.4716
+        ],
+        [
+          "doc_23",
+          0.4648
+        ],
+        [
+          "doc_17",
+          0.4588
+        ]
+      ]
+    },
+    {
+      "question": "利用料金はいくらですか？",
+      "gold": "doc_11",
+      "subtype": null,
+      "top": [
+        [
+          "doc_18",
+          0.5071
+        ],
+        [
+          "doc_33",
+          0.4009
+        ],
+        [
+          "doc_22",
+          0.3706
+        ],
+        [
+          "doc_27",
+          0.3571
+        ],
+        [
+          "doc_11",
+          0.3515
+        ]
+      ]
+    },
+    {
+      "question": "無料トライアルは何日ですか？",
+      "gold": "doc_12",
+      "subtype": null,
+      "top": [
+        [
+          "doc_12",
+          0.6745
+        ],
+        [
+          "doc_25",
+          0.5573
+        ],
+        [
+          "doc_26",
+          0.3679
+        ],
+        [
+          "doc_01",
+          0.3614
+        ],
+        [
+          "doc_10",
+          0.36
+        ]
+      ]
+    },
+    {
+      "question": "支払い方法は何ですか？",
+      "gold": "doc_13",
+      "subtype": null,
+      "top": [
+        [
+          "doc_13",
+          0.5922
+        ],
+        [
+          "doc_19",
+          0.3693
+        ],
+        [
+          "doc_25",
+          0.3143
+        ],
+        [
+          "doc_34",
+          0.3015
+        ],
+        [
+          "doc_21",
+          0.2901
+        ]
+      ]
+    },
+    {
+      "question": "日割り計算には対応していますか？",
+      "gold": "doc_14",
+      "subtype": null,
+      "top": [
+        [
+          "doc_14",
+          0.8125
+        ],
+        [
+          "doc_20",
+          0.5303
+        ],
+        [
+          "doc_35",
+          0.4851
+        ],
+        [
+          "doc_47",
+          0.4364
+        ],
+        [
+          "doc_02",
+          0.4252
+        ]
+      ]
+    },
+    {
+      "question": "途中解約で返金されますか？",
+      "gold": "doc_15",
+      "subtype": null,
+      "top": [
+        [
+          "doc_15",
+          0.6999
+        ],
+        [
+          "doc_16",
+          0.5477
+        ],
+        [
+          "doc_41",
+          0.4518
+        ],
+        [
+          "doc_19",
+          0.4216
+        ],
+        [
+          "doc_27",
+          0.414
+        ]
+      ]
+    },
+    {
+      "question": "契約の更新頻度は？",
+      "gold": "doc_16",
+      "subtype": null,
+      "top": [
+        [
+          "doc_19",
+          0.4763
+        ],
+        [
+          "doc_16",
+          0.3928
+        ],
+        [
+          "doc_37",
+          0.3824
+        ],
+        [
+          "doc_15",
+          0.278
+        ],
+        [
+          "doc_42",
+          0.2425
+        ]
+      ]
+    },
+    {
+      "question": "年額プランはありますか？",
+      "gold": "doc_17",
+      "subtype": null,
+      "top": [
+        [
+          "doc_17",
+          0.596
+        ],
+        [
+          "doc_02",
+          0.491
+        ],
+        [
+          "doc_50",
+          0.378
+        ],
+        [
+          "doc_09",
+          0.3727
+        ],
+        [
+          "doc_41",
+          0.3608
+        ]
+      ]
+    },
+    {
+      "question": "初期費用は必要ですか？",
+      "gold": "doc_18",
+      "subtype": null,
+      "top": [
+        [
+          "doc_18",
+          0.7628
+        ],
+        [
+          "doc_01",
+          0.4077
+        ],
+        [
+          "doc_21",
+          0.4062
+        ],
+        [
+          "doc_27",
+          0.4029
+        ],
+        [
+          "doc_02",
+          0.3989
+        ]
+      ]
+    },
+    {
+      "question": "法人と個人で料金は違いますか？",
+      "gold": "doc_19",
+      "subtype": null,
+      "top": [
+        [
+          "doc_19",
+          0.5941
+        ],
+        [
+          "doc_13",
+          0.4763
+        ],
+        [
+          "doc_08",
+          0.3895
+        ],
+        [
+          "doc_26",
+          0.3895
+        ],
+        [
+          "doc_34",
+          0.3881
+        ]
+      ]
+    },
+    {
+      "question": "請求書払いはできますか？",
+      "gold": "doc_20",
+      "subtype": null,
+      "top": [
+        [
+          "doc_20",
+          0.5443
+        ],
+        [
+          "doc_16",
+          0.4763
+        ],
+        [
+          "doc_21",
+          0.3889
+        ],
+        [
+          "doc_13",
+          0.378
+        ],
+        [
+          "doc_25",
+          0.3612
+        ]
+      ]
+    },
+    {
+      "question": "データはどの形式でエクスポートできますか？",
+      "gold": "doc_21",
+      "subtype": null,
+      "top": [
+        [
+          "doc_21",
+          0.8519
+        ],
+        [
+          "doc_38",
+          0.6094
+        ],
+        [
+          "doc_01",
+          0.488
+        ],
+        [
+          "doc_07",
+          0.4529
+        ],
+        [
+          "doc_06",
+          0.4423
+        ]
+      ]
+    },
+    {
+      "question": "APIの権限はどのようになっていますか？",
+      "gold": "doc_22",
+      "subtype": null,
+      "top": [
+        [
+          "doc_23",
+          0.6275
+        ],
+        [
+          "doc_44",
+          0.5581
+        ],
+        [
+          "doc_30",
+          0.5398
+        ],
+        [
+          "doc_15",
+          0.516
+        ],
+        [
+          "doc_39",
+          0.5145
+        ]
+      ]
+    },
+    {
+      "question": "APIのリクエスト制限の記載はありますか？",
+      "gold": "doc_23",
+      "subtype": null,
+      "top": [
+        [
+          "doc_23",
+          0.8113
+        ],
+        [
+          "doc_17",
+          0.5965
+        ],
+        [
+          "doc_44",
+          0.5942
+        ],
+        [
+          "doc_48",
+          0.5389
+        ],
+        [
+          "doc_39",
+          0.5336
+        ]
+      ]
+    },
+    {
+      "question": "1ユーザーあたりの登録上限はありますか？",
+      "gold": "doc_24",
+      "subtype": null,
+      "top": [
+        [
+          "doc_24",
+          0.8454
+        ],
+        [
+          "doc_02",
+          0.593
+        ],
+        [
+          "doc_48",
+          0.4529
+        ],
+        [
+          "doc_08",
+          0.4499
+        ],
+        [
+          "doc_47",
+          0.428
+        ]
+      ]
+    },
+    {
+      "question": "添付ファイルの最大サイズはどれくらいですか？",
+      "gold": "doc_25",
+      "subtype": null,
+      "top": [
+        [
+          "doc_25",
+          0.7995
+        ],
+        [
+          "doc_36",
+          0.4188
+        ],
+        [
+          "doc_12",
+          0.377
+        ],
+        [
+          "doc_26",
+          0.377
+        ],
+        [
+          "doc_33",
+          0.3651
+        ]
+      ]
+    },
+    {
+      "question": "画像ファイルはアップロードできますか？",
+      "gold": "doc_26",
+      "subtype": null,
+      "top": [
+        [
+          "doc_26",
+          0.8511
+        ],
+        [
+          "doc_25",
+          0.5005
+        ],
+        [
+          "doc_01",
+          0.4426
+        ],
+        [
+          "doc_27",
+          0.4082
+        ],
+        [
+          "doc_29",
+          0.381
+        ]
+      ]
+    },
+    {
+      "question": "通知はどの手段で届きますか？",
+      "gold": "doc_27",
+      "subtype": null,
+      "top": [
+        [
+          "doc_27",
+          0.4286
+        ],
+        [
+          "doc_16",
+          0.378
+        ],
+        [
+          "doc_26",
+          0.3679
+        ],
+        [
+          "doc_21",
+          0.36
+        ],
+        [
+          "doc_28",
+          0.3499
+        ]
+      ]
+    },
+    {
+      "question": "SMS通知について記載はありますか？",
+      "gold": "doc_28",
+      "subtype": null,
+      "top": [
+        [
+          "doc_28",
+          0.8295
+        ],
+        [
+          "doc_39",
+          0.6508
+        ],
+        [
+          "doc_44",
+          0.5398
+        ],
+        [
+          "doc_08",
+          0.513
+        ],
+        [
+          "doc_17",
+          0.513
+        ]
+      ]
+    },
+    {
+      "question": "自動バックアップは行われますか？",
+      "gold": "doc_29",
+      "subtype": null,
+      "top": [
+        [
+          "doc_29",
+          0.823
+        ],
+        [
+          "doc_30",
+          0.5503
+        ],
+        [
+          "doc_31",
+          0.4326
+        ],
+        [
+          "doc_41",
+          0.4125
+        ],
+        [
+          "doc_36",
+          0.3932
+        ]
+      ]
+    },
+    {
+      "question": "バックアップの保存期間はどうなっていますか？",
+      "gold": "doc_30",
+      "subtype": null,
+      "top": [
+        [
+          "doc_30",
+          0.7303
+        ],
+        [
+          "doc_29",
+          0.5786
+        ],
+        [
+          "doc_44",
+          0.5581
+        ],
+        [
+          "doc_13",
+          0.4243
+        ],
+        [
+          "doc_34",
+          0.3889
+        ]
+      ]
+    },
+    {
+      "question": "この会社の創業者は誰ですか？",
+      "gold": null,
+      "subtype": "noise",
+      "top": [
+        [
+          "doc_25",
+          0.417
+        ],
+        [
+          "doc_33",
+          0.375
+        ],
+        [
+          "doc_48",
+          0.3368
+        ],
+        [
+          "doc_44",
+          0.325
+        ],
+        [
+          "doc_30",
+          0.3143
+        ]
+      ]
+    },
+    {
+      "question": "本社の所在地はどこですか？",
+      "gold": null,
+      "subtype": "noise",
+      "top": [
+        [
+          "doc_16",
+          0.3922
+        ],
+        [
+          "doc_15",
+          0.347
+        ],
+        [
+          "doc_25",
+          0.347
+        ],
+        [
+          "doc_33",
+          0.3467
+        ],
+        [
+          "doc_41",
+          0.3467
+        ]
+      ]
+    },
+    {
+      "question": "従業員数は何人ですか？",
+      "gold": null,
+      "subtype": "noise",
+      "top": [
+        [
+          "doc_19",
+          0.3963
+        ],
+        [
+          "doc_13",
+          0.3026
+        ],
+        [
+          "doc_25",
+          0.2892
+        ],
+        [
+          "doc_18",
+          0.2631
+        ],
+        [
+          "doc_16",
+          0.2615
+        ]
+      ]
+    },
+    {
+      "question": "会社の設立年はいつですか？",
+      "gold": null,
+      "subtype": "noise",
+      "top": [
+        [
+          "doc_33",
+          0.416
+        ],
+        [
+          "doc_13",
+          0.3631
+        ],
+        [
+          "doc_44",
+          0.3605
+        ],
+        [
+          "doc_18",
+          0.3508
+        ],
+        [
+          "doc_30",
+          0.3487
+        ]
+      ]
+    },
+    {
+      "question": "CEOの名前を教えてください。",
+      "gold": null,
+      "subtype": "noise",
+      "top": [
+        [
+          "doc_39",
+          0.4384
+        ],
+        [
+          "doc_43",
+          0.4146
+        ],
+        [
+          "doc_49",
+          0.4108
+        ],
+        [
+          "doc_28",
+          0.3944
+        ],
+        [
+          "doc_23",
+          0.3928
+        ]
+      ]
+    },
+    {
+      "question": "サービスの株価はいくらですか？",
+      "gold": null,
+      "subtype": "noise",
+      "top": [
+        [
+          "doc_33",
+          0.4518
+        ],
+        [
+          "doc_21",
+          0.4472
+        ],
+        [
+          "doc_01",
+          0.4364
+        ],
+        [
+          "doc_25",
+          0.4307
+        ],
+        [
+          "doc_31",
+          0.4146
+        ]
+      ]
+    },
+    {
+      "question": "データセンターの電力会社はどこですか？",
+      "gold": null,
+      "subtype": "noise",
+      "top": [
+        [
+          "doc_38",
+          0.6415
+        ],
+        [
+          "doc_21",
+          0.5556
+        ],
+        [
+          "doc_41",
+          0.5292
+        ],
+        [
+          "doc_47",
+          0.462
+        ],
+        [
+          "doc_03",
+          0.4291
+        ]
+      ]
+    },
+    {
+      "question": "プライバシーポリシーのURLは何ですか？",
+      "gold": null,
+      "subtype": "noise",
+      "top": [
+        [
+          "doc_01",
+          0.4485
+        ],
+        [
+          "doc_21",
+          0.4321
+        ],
+        [
+          "doc_25",
+          0.3831
+        ],
+        [
+          "doc_33",
+          0.3572
+        ],
+        [
+          "doc_50",
+          0.3563
+        ]
+      ]
+    },
+    {
+      "question": "サービスのロゴは何色ですか？",
+      "gold": null,
+      "subtype": "noise",
+      "top": [
+        [
+          "doc_01",
+          0.4969
+        ],
+        [
+          "doc_25",
+          0.4458
+        ],
+        [
+          "doc_47",
+          0.4082
+        ],
+        [
+          "doc_33",
+          0.4009
+        ],
+        [
+          "doc_31",
+          0.3679
+        ]
+      ]
+    },
+    {
+      "question": "利用者の平均年齢はどのくらいですか？",
+      "gold": null,
+      "subtype": "noise",
+      "top": [
+        [
+          "doc_18",
+          0.4781
+        ],
+        [
+          "doc_47",
+          0.4536
+        ],
+        [
+          "doc_33",
+          0.4252
+        ],
+        [
+          "doc_44",
+          0.3158
+        ],
+        [
+          "doc_22",
+          0.3145
+        ]
+      ]
+    },
+    {
+      "question": "指紋や顔認証でログインできますか？",
+      "gold": null,
+      "subtype": "hallucination",
+      "top": [
+        [
+          "doc_21",
+          0.4415
+        ],
+        [
+          "doc_26",
+          0.4211
+        ],
+        [
+          "doc_09",
+          0.3554
+        ],
+        [
+          "doc_03",
+          0.3541
+        ],
+        [
+          "doc_01",
+          0.349
+        ]
+      ]
+    },
+    {
+      "question": "SAMLやSSOでのシングルサインオンは利用できますか？",
+      "gold": null,
+      "subtype": "hallucination",
+      "top": [
+        [
+          "doc_21",
+          0.5642
+        ],
+        [
+          "doc_18",
+          0.5367
+        ],
+        [
+          "doc_25",
+          0.4183
+        ],
+        [
+          "doc_27",
+          0.4124
+        ],
+        [
+          "doc_47",
+          0.3704
+        ]
+      ]
+    },
+    {
+      "question": "Webhookでイベント通知を受け取れますか？",
+      "gold": null,
+      "subtype": "hallucination",
+      "top": [
+        [
+          "doc_25",
+          0.3753
+        ],
+        [
+          "doc_36",
+          0.3753
+        ],
+        [
+          "doc_26",
+          0.3212
+        ],
+        [
+          "doc_27",
+          0.3207
+        ],
+        [
+          "doc_05",
+          0.3138
+        ]
+      ]
+    },
+    {
+      "question": "オフラインでもデータ編集できますか？",
+      "gold": null,
+      "subtype": "hallucination",
+      "top": [
+        [
+          "doc_21",
+          0.5284
+        ],
+        [
+          "doc_38",
+          0.4576
+        ],
+        [
+          "doc_26",
+          0.4499
+        ],
+        [
+          "doc_25",
+          0.4089
+        ],
+        [
+          "doc_01",
+          0.3978
+        ]
+      ]
+    },
+    {
+      "question": "利用者ごとにカスタムドメインを設定できますか？",
+      "gold": null,
+      "subtype": "hallucination",
+      "top": [
+        [
+          "doc_01",
+          0.5071
+        ],
+        [
+          "doc_21",
+          0.4234
+        ],
+        [
+          "doc_32",
+          0.417
+        ],
+        [
+          "doc_04",
+          0.4
+        ],
+        [
+          "doc_47",
+          0.3928
+        ]
+      ]
+    },
+    {
+      "question": "レポートをPDFで自動生成する機能はありますか？",
+      "gold": null,
+      "subtype": "hallucination",
+      "top": [
+        [
+          "doc_16",
+          0.5345
+        ],
+        [
+          "doc_41",
+          0.5197
+        ],
+        [
+          "doc_02",
+          0.4643
+        ],
+        [
+          "doc_27",
+          0.4546
+        ],
+        [
+          "doc_03",
+          0.4537
+        ]
+      ]
+    },
+    {
+      "question": "チャットボットによるサポートは提供されていますか？",
+      "gold": null,
+      "subtype": "hallucination",
+      "top": [
+        [
+          "doc_36",
+          0.5406
+        ],
+        [
+          "doc_35",
+          0.4808
+        ],
+        [
+          "doc_15",
+          0.4134
+        ],
+        [
+          "doc_29",
+          0.3993
+        ],
+        [
+          "doc_34",
+          0.3965
+        ]
+      ]
+    },
+    {
+      "question": "外部BIツールへのリアルタイム連携はありますか？",
+      "gold": null,
+      "subtype": "hallucination",
+      "top": [
+        [
+          "doc_26",
+          0.4867
+        ],
+        [
+          "doc_25",
+          0.4792
+        ],
+        [
+          "doc_01",
+          0.4183
+        ],
+        [
+          "doc_02",
+          0.4009
+        ],
+        [
+          "doc_24",
+          0.381
+        ]
+      ]
+    },
+    {
+      "question": "複数言語のUIに切り替えられますか？",
+      "gold": null,
+      "subtype": "hallucination",
+      "top": [
+        [
+          "doc_23",
+          0.4158
+        ],
+        [
+          "doc_40",
+          0.4041
+        ],
+        [
+          "doc_24",
+          0.4016
+        ],
+        [
+          "doc_50",
+          0.3904
+        ],
+        [
+          "doc_48",
+          0.3873
+        ]
+      ]
+    },
+    {
+      "question": "Kubernetes向けの専用デプロイ手順はありますか？",
+      "gold": null,
+      "subtype": "hallucination",
+      "top": [
+        [
+          "doc_36",
+          0.4059
+        ],
+        [
+          "doc_25",
+          0.3721
+        ],
+        [
+          "doc_42",
+          0.3541
+        ],
+        [
+          "doc_28",
+          0.354
+        ],
+        [
+          "doc_40",
+          0.3351
+        ]
+      ]
+    },
+    {
+      "question": "無料トライアル中に機能制限はありますか？",
+      "gold": null,
+      "subtype": "boundary",
+      "top": [
+        [
+          "doc_10",
+          0.5744
+        ],
+        [
+          "doc_12",
+          0.538
+        ],
+        [
+          "doc_25",
+          0.4446
+        ],
+        [
+          "doc_17",
+          0.4402
+        ],
+        [
+          "doc_23",
+          0.4324
+        ]
+      ]
+    },
+    {
+      "question": "クレジットカード以外の支払い方法を追加できますか？",
+      "gold": null,
+      "subtype": "boundary",
+      "top": [
+        [
+          "doc_13",
+          0.7559
+        ],
+        [
+          "doc_26",
+          0.3974
+        ],
+        [
+          "doc_34",
+          0.3849
+        ],
+        [
+          "doc_30",
+          0.3802
+        ],
+        [
+          "doc_21",
+          0.3704
+        ]
+      ]
+    },
+    {
+      "question": "24時間稼働でも計画停止時はどこで告知されますか？",
+      "gold": null,
+      "subtype": "boundary",
+      "top": [
+        [
+          "doc_31",
+          0.551
+        ],
+        [
+          "doc_05",
+          0.5339
+        ],
+        [
+          "doc_27",
+          0.4708
+        ],
+        [
+          "doc_16",
+          0.4152
+        ],
+        [
+          "doc_36",
+          0.3673
+        ]
+      ]
+    },
+    {
+      "question": "CSVエクスポートの列をカスタマイズできますか？",
+      "gold": null,
+      "subtype": "boundary",
+      "top": [
+        [
+          "doc_21",
+          0.7379
+        ],
+        [
+          "doc_01",
+          0.4938
+        ],
+        [
+          "doc_25",
+          0.4188
+        ],
+        [
+          "doc_23",
+          0.4012
+        ],
+        [
+          "doc_38",
+          0.3956
+        ]
+      ]
+    },
+    {
+      "question": "メール通知の送信元アドレスは変更できますか？",
+      "gold": null,
+      "subtype": "boundary",
+      "top": [
+        [
+          "doc_27",
+          0.6268
+        ],
+        [
+          "doc_01",
+          0.6126
+        ],
+        [
+          "doc_26",
+          0.5869
+        ],
+        [
+          "doc_04",
+          0.533
+        ],
+        [
+          "doc_50",
+          0.4652
+        ]
+      ]
+    },
+    {
+      "question": "画像以外のファイルはプレビューできますか？",
+      "gold": null,
+      "subtype": "boundary",
+      "top": [
+        [
+          "doc_26",
+          0.6181
+        ],
+        [
+          "doc_25",
+          0.4815
+        ],
+        [
+          "doc_02",
+          0.4364
+        ],
+        [
+          "doc_24",
+          0.3111
+        ],
+        [
+          "doc_27",
+          0.3086
+        ]
+      ]
+    },
+    {
+      "question": "退会後に一部のデータだけ保持できますか？",
+      "gold": null,
+      "subtype": "boundary",
+      "top": [
+        [
+          "doc_21",
+          0.5164
+        ],
+        [
+          "doc_48",
+          0.5164
+        ],
+        [
+          "doc_41",
+          0.5031
+        ],
+        [
+          "doc_38",
+          0.4099
+        ],
+        [
+          "doc_47",
+          0.3416
+        ]
+      ]
+    },
+    {
+      "question": "暗号化鍵を自社管理にできますか？",
+      "gold": null,
+      "subtype": "boundary",
+      "top": [
+        [
+          "doc_06",
+          0.5
+        ],
+        [
+          "doc_07",
+          0.416
+        ],
+        [
+          "doc_16",
+          0.3889
+        ],
+        [
+          "doc_41",
+          0.3536
+        ],
+        [
+          "doc_15",
+          0.2457
+        ]
+      ]
+    },
+    {
+      "question": "APIのエンドポイント数はいくつありますか？",
+      "gold": null,
+      "subtype": "boundary",
+      "top": [
+        [
+          "doc_23",
+          0.543
+        ],
+        [
+          "doc_10",
+          0.5092
+        ],
+        [
+          "doc_38",
+          0.441
+        ],
+        [
+          "doc_21",
+          0.4364
+        ],
+        [
+          "doc_48",
+          0.4364
+        ]
+      ]
+    },
+    {
+      "question": "バックアップの実行頻度を変更できますか？",
+      "gold": null,
+      "subtype": "boundary",
+      "top": [
+        [
+          "doc_29",
+          0.6419
+        ],
+        [
+          "doc_30",
+          0.5284
+        ],
+        [
+          "doc_26",
+          0.4049
+        ],
+        [
+          "doc_13",
+          0.3424
+        ],
+        [
+          "doc_50",
+          0.3424
+        ]
+      ]
+    }
+  ]
+}

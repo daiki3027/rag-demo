@@ -1,20 +1,32 @@
 # RAG v0
 
-最小構成の RAG (ベクトル検索 + cosine 全件走査) デモです。バックエンドは FastAPI、フロントエンドは Next.js(App Router)で実装しています。
+最小構成の RAG（ベクトル検索 + cosine 全件走査）デモです。バックエンドは FastAPI、フロントエンドは Next.js（App Router）で実装しています。
+回答には、検索で1位になった文書をそのまま返します（LLM による文章生成はしていません）。1位のスコアが閾値より低いときは、回答を断ります。
+
+**作った目的は、検索と「答えられない質問を断る」動作を数値で評価することです。** 60問の評価セットで、埋め込みの種類と閾値を変えて比べました（[評価結果](#評価結果)）。
 
 ## ディレクトリ
-- `backend/` FastAPI + インデクサ
+
+- `backend/` FastAPI + インデクサ + 評価
+- `backend/data/seed/` テスト用ドキュメント50件（`documents.jsonl`）と QA 60問（`qa.jsonl`）
+- `backend/data/index/` ベクトルインデックス出力先（`vectors.jsonl`, `meta.json`）
+- `backend/data/eval_cache/` 評価用の OpenAI 埋め込みのキャッシュ（API キーなしで評価を再現するため）
+- `backend/scripts/run_eval.py` 評価をコマンド1つで回すスクリプト
+- `backend/eval_results/` 評価結果（`dummy.md` / `openai.md` と、同じ内容の JSON）
+- `backend/tests/` テスト
 - `frontend/` Next.js UI
-- `backend/data/seed/` テスト用ドキュメント50件(`documents.jsonl`)とQA60問(`qa.jsonl`)
-- `backend/data/index/` ベクトルインデックス出力先(`vectors.jsonl`, `meta.json`)
 
 ## Docker でまとめて起動する
+
 - ビルド & 起動: `docker compose up --build`
-- バックエンド: http://localhost:8000
-- フロントエンド: http://localhost:3000 (バックエンドへの接続先は `NEXT_PUBLIC_BACKEND_URL` で変更可)
+- バックエンド: <http://localhost:8000>
+- フロントエンド: <http://localhost:3000>（バックエンドへの接続先は `NEXT_PUBLIC_BACKEND_URL` で変更可）
 - 生成されたインデックスはホストの `backend/data` と共有されるため、コンテナ再作成後も維持されます。
 
 ## 1. バックエンド起動
+
+ローカルでは Python 3.12 で動作を確認しています（Docker イメージは 3.11）。
+
 ```bash
 cd backend
 python -m venv .venv
@@ -25,30 +37,140 @@ uvicorn app.main:app --reload
 ```
 
 ### インデックス作成
+
 初回はインデックスが無いので再構築してください。
+
 ```bash
 curl -X POST http://localhost:8000/api/reindex
 ```
+
 `backend/data/index/` に `vectors.jsonl` が出力されます。
 
 ## 2. フロントエンド起動
+
 ```bash
 cd frontend
 npm install
 cp .env.local.example .env.local  # NEXT_PUBLIC_BACKEND_URL を必要に応じ変更
 npm run dev
 ```
-- `http://localhost:3000/` : Chat 画面（質問フォーム + sources表示）
+
+- `http://localhost:3000/` : Chat 画面（質問フォーム + sources 表示）
 - `http://localhost:3000/eval` : 評価画面（Hit@5 / No-answer accuracy, failures）
 
 ## 3. API
-- `POST /api/query` {"question": "..."} → answer + sources(top5)。`max_score < threshold` なら sources 空＋拒否文。
+
+- `POST /api/query` {"question": "..."} → answer + sources（top5）。`max_score < threshold` なら sources 空＋拒否文。
 - `POST /api/reindex` → seed から再インデックス。
 - `POST /api/eval` → 60問評価結果を返却。
 
 ## 4. パラメータ調整
-- `RETRIEVER_THRESHOLD` (デフォルト 0.25)
-- `EMBEDDING_PROVIDER` (`dummy` または `openai`)
-- `EMBEDDING_DIM` (dummy用ベクトル次元)
+
+- `RETRIEVER_THRESHOLD`（デフォルト 0.25。下の評価では、OpenAI 埋め込みなら 0.60〜0.70 が最も良い）
+- `EMBEDDING_PROVIDER`（`dummy` または `openai`）
+- `EMBEDDING_DIM`（dummy 用ベクトル次元）
 
 環境変数は `backend/.env` で設定できます。
+
+## 5. 評価を回す
+
+`backend/` で実行します。サーバーを起動する必要はありません。
+
+```bash
+python scripts/run_eval.py --provider dummy
+python scripts/run_eval.py --provider openai   # .env の OPENAI_API_KEY を使う
+```
+
+- 閾値を 0.10〜0.80 まで 0.05 刻みで変えた結果を、`eval_results/<provider>.md` と `.json` に書き出します
+- OpenAI の埋め込みは `data/eval_cache/` にキャッシュするので、2回目以降は API を呼びません（キャッシュがあれば API キーなしでも同じ数値が出ます）
+- 閾値は `--thresholds 0.3,0.5,0.7`、失敗例を出す閾値は `--default-threshold 0.6` で変えられます
+
+テスト:
+
+```bash
+python -m unittest discover -s tests -t .
+```
+
+## 評価結果
+
+評価セットは60問です。
+
+- **答えられる質問 30問**: 正解の文書が1つ決まっている
+- **答えてはいけない質問 30問**（各10問）
+  - **noise**: 文書と無関係（「創業者は誰ですか？」）
+  - **hallucination**: 文書に無い機能を聞く（「SAML で SSO できますか？」）
+  - **boundary**: 文書にある話題の、書かれていない詳細を聞く（「CSV エクスポートの列をカスタマイズできますか？」。文書には「CSV でエクスポートできる」とだけある）
+
+指標:
+
+- **Hit@1 / Hit@5**: 正解の文書が1位 / 上位5件に入った割合（閾値に関係しない）
+- **正しく答えた**: 1位のスコアが閾値以上で、かつ1位が正解の文書だった割合。回答として見せるのは1位の文書なので、2位以下に正解があっても誤答として数える
+- **誤って断った**: 答えられる質問なのに断った割合
+- **断れた**: 答えてはいけない質問を断れた割合
+- **全体の正解率**: 60問のうち、正しく答えたか正しく断った割合
+
+### 閾値ごとの比較（抜粋）
+
+全閾値の表は [`backend/eval_results/openai.md`](backend/eval_results/openai.md) と [`backend/eval_results/dummy.md`](backend/eval_results/dummy.md)。
+
+| 埋め込み | 閾値 | Hit@1 | Hit@5 | 正しく答えた | 誤って断った | 断れた | noise | hallucination | boundary | 全体の正解率 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dummy（文字ハッシュ 128次元） | 0.25（既定値） | 80% | 97% | 80% | 0% | 0% | 0% | 0% | 0% | 40% |
+| dummy | 0.55 | 80% | 97% | 73% | 13% | 70% | 90% | 90% | 30% | 72% |
+| dummy | 0.65（最良） | 80% | 97% | 60% | 33% | 93% | 100% | 100% | 80% | 77% |
+| OpenAI text-embedding-3-small | 0.25（既定値） | 97% | 100% | 97% | 0% | 10% | 30% | 0% | 0% | 53% |
+| OpenAI | 0.50 | 97% | 100% | 97% | 0% | 67% | 90% | 100% | 10% | 82% |
+| OpenAI | **0.60（最良）** | 97% | 100% | 97% | 3% | 90% | 100% | 100% | 70% | **93%** |
+| OpenAI | 0.75 | 97% | 100% | 63% | 37% | 100% | 100% | 100% | 100% | 82% |
+
+#### 1位のスコアの分布（中央値）
+
+| 埋め込み | 答えられる | noise | hallucination | boundary |
+| --- | --- | --- | --- | --- |
+| dummy | 0.713 | 0.443 | 0.497 | 0.596 |
+| OpenAI | 0.795 | 0.384 | 0.378 | 0.525 |
+
+### 分かったこと
+
+1. **既定値の閾値 0.25 は低すぎる。** OpenAI の埋め込みでも、答えてはいけない質問の90%に答えてしまう。0.60 に上げると、答えられる質問の正答率を落とさず（97%）、全体の正解率が 53% → 93% になる
+2. **OpenAI の埋め込みは、答えられる質問と答えてはいけない質問のスコアの差が大きい。** 中央値で 0.795 と 0.38 前後。dummy は 0.713 と 0.44〜0.60 で差が小さく、閾値で分けにくい
+3. **boundary が一番断りにくい。** OpenAI でもスコアの中央値が 0.525 と、答えられる質問の最低値 0.54 に近い。boundary をすべて断るには閾値 0.75 が必要で、そうすると答えられる質問の 37% も断ってしまう
+
+### 失敗例の分析
+
+閾値 0.25 での失敗の全件は `eval_results/*.md` の後半にあります。
+
+#### 言い換えに弱い（両方の埋め込み）
+
+「APIの権限はどのようになっていますか？」の正解は doc_22「APIは読み取り専用です。」だが、両方の埋め込みで doc_23「APIのリクエスト回数制限についての記載はありません。」が1位になった。
+質問の「権限」と文書の「読み取り専用」は意味ではつながるが、表面の語は「API」しか共通しない。OpenAI でも正解は2位に留まった。
+
+#### 似た文書を取り違える（dummy）
+
+dummy は文字の出現を数えるだけなので、同じ文字を多く含む別の文書を1位にしてしまう。30問中6問で、1位が正解の文書ではなかった。
+
+| 質問 | 正解 | dummy の1位 |
+| --- | --- | --- |
+| 一般ユーザーは管理画面を見られますか？ | doc_07「一般ユーザーは管理画面にアクセスできません。」 | doc_06「管理者ユーザーは管理画面にアクセスできます。」 |
+| ログイン状態はどのくらい保持されますか？ | doc_05「ログイン状態は24時間維持されます。」 | doc_09「ログイン履歴は保存されません。」 |
+| パスワードは最低何文字必要ですか？ | doc_02「パスワードは8文字以上である必要があります。」 | doc_01「ログインにはメールアドレスとパスワードが必要です。」 |
+
+1つ目は、**正反対の内容を回答してしまう**例。OpenAI では3問とも正解が1位だった。
+
+#### 話題が合っていれば、答えが無くてもスコアが高い（boundary）
+
+| 質問 | 1位の文書 | OpenAI のスコア |
+| --- | --- | --- |
+| 退会後に一部のデータだけ保持できますか？ | doc_48「退会後のデータ保持期間についての記載はありません。」 | 0.714 |
+| CSVエクスポートの列をカスタマイズできますか？ | doc_21「データはCSV形式でエクスポートできます。」 | 0.653 |
+| クレジットカード以外の支払い方法を追加できますか？ | doc_13「支払い方法はクレジットカードのみです。」 | 0.622 |
+
+埋め込みの類似度が測っているのは「同じ話題か」で、「この文書がこの質問に答えているか」ではない。そのため、話題が一致する boundary の質問は、閾値をどう置いても答えられる質問と分けきれない。
+
+**閾値の調整だけでは限界がある。** 次に試すなら、検索のあとに「取ってきた文書で質問に答えられるか」を判定する段（LLM による判定、または NLI モデル）を足し、boundary の「断れた」がどこまで上がるかを測る。
+
+### この評価の限界
+
+- 文書50件・質問60問と小さく、1問で 3.3 ポイント動く。差が数問分しかない比較は、偶然の範囲を出ない
+- 評価セットは自作で、文書が1文ずつと短い。実際の長い文書をチャンクに分けた場合の結果は分からない
+- 閾値は同じ60問で選んでいるので、最良の閾値の数値は楽観的に出ている（検証用と評価用を分けていない）
